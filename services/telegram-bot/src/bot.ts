@@ -7,6 +7,8 @@ export function createBot(token: string): Bot {
   const bot = new Bot(token);
 
   bot.command("start", async (ctx) => {
+    const telegramId = ctx.from?.id;
+    if (!telegramId) return;
     await ctx.reply(START_MESSAGE);
   });
 

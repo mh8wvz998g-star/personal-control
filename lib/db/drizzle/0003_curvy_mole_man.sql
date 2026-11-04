@@ -1,0 +1,4 @@
+ALTER TABLE "permission_audit_logs" ADD CONSTRAINT "permission_audit_logs_actor_admin_id_admins_id_fk" FOREIGN KEY ("actor_admin_id") REFERENCES "public"."admins"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "permission_audit_logs" ADD CONSTRAINT "permission_audit_logs_target_admin_id_admins_id_fk" FOREIGN KEY ("target_admin_id") REFERENCES "public"."admins"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "permission_audit_logs" ADD CONSTRAINT "permission_audit_logs_target_position_id_positions_id_fk" FOREIGN KEY ("target_position_id") REFERENCES "public"."positions"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+ALTER TABLE "permission_audit_logs" ADD CONSTRAINT "permission_audit_logs_permission_id_permissions_id_fk" FOREIGN KEY ("permission_id") REFERENCES "public"."permissions"("id") ON DELETE no action ON UPDATE no action;

@@ -7,6 +7,7 @@ export class ConfigError extends Error {
 
 export interface BotConfig {
   telegramBotToken: string;
+  superAdminIds: number[];
 }
 
 export function loadConfig(): BotConfig {
@@ -16,5 +17,11 @@ export function loadConfig(): BotConfig {
     throw new ConfigError();
   }
 
-  return { telegramBotToken };
+  return { 
+    telegramBotToken: process.env.TELEGRAM_BOT_TOKEN ?? "",
+    superAdminIds: (process.env.SUPER_ADMIN_IDS ??"")
+     .split(",")
+     .map((id) => Number(id.trim()))
+     .filter((id) => Number.isSafeInteger(id) && id >0),
+   };
 }

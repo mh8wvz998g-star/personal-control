@@ -1,0 +1,2 @@
+ALTER TABLE "admin_permission_overrides" ADD CONSTRAINT "admin_permission_overrides_changed_by_admins_id_fk" FOREIGN KEY ("changed_by") REFERENCES "public"."admins"("id") ON DELETE no action ON UPDATE no action;--> statement-breakpoint
+CREATE INDEX "permission_audit_logs_created_at_idx" ON "permission_audit_logs" USING btree ("created_at");
