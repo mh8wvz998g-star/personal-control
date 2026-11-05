@@ -3,7 +3,7 @@ import { ConfigError, loadConfig } from "./config.js";
 
 async function main(): Promise<void> {
   const config = loadConfig();
-  const bot = createBot(config.telegramBotToken);
+  const bot = createBot(config.telegramBotToken, config.webAppUrl);
   let stopping = false;
 
   const shutdown = (): void => {
